@@ -1,0 +1,19 @@
+{
+  "name": "kesariya-catering-website",
+  "version": "1.0.0",
+  "description": "Kesariya Catering - Premier Food, Beverage & Event Decor Catering Services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "catering",
+    "kesariya",
+    "wedding-catering",
+    "event-decoration",
+    "food-and-beverage"
+  ],
+  "author": "Kesariya Catering",
+  "license": "ISC"
+}
