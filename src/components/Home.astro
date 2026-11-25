@@ -82,7 +82,7 @@ const err = (k: string) => errorKeys.includes(k);
           <Thali uid="hero" label={d.hero.thaliLabel} />
           <ul class="plate-key" role="list" aria-hidden="true">
             {KATORIS.map((k) => (
-              <li style={`left:${(k.x / 6.4).toFixed(2)}%;top:${((k.y + 62) / 6.4).toFixed(2)}%`}>{d.hero.katori[k.id]}</li>
+              <li data-k={k.id} style={`left:${(k.x / 6.4).toFixed(2)}%;top:${((k.y + 62) / 6.4).toFixed(2)}%`}>{d.hero.katori[k.id]}</li>
             ))}
           </ul>
         </div>
@@ -529,6 +529,8 @@ const err = (k: string) => errorKeys.includes(k);
       top: calc(var(--s-5) + 8.5rem);
     }
     .plate-wrap { width: 100%; }
+    /* Bowls on the right half fall outside the cropped half-plate: no clipped labels. */
+    .plate-key li:is([data-k='dal'], [data-k='chaat'], [data-k='global']) { display: none; }
   }
   @media (min-width: 600px) and (max-width: 920px) {
     .hero-plate { top: var(--s-5); right: calc(-1 * var(--gutter) - 90px); width: 360px; }
