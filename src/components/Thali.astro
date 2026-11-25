@@ -11,13 +11,8 @@ interface Props {
 const { uid, mode = 'full', label, class: cls = '' } = Astro.props;
 const u = (s: string) => `${uid}-${s}`;
 
+import { KATORIS as katoris } from '../data/thali';
 const C = 320;
-const ORBIT = 192;
-const order = ['sabzi', 'dal', 'chaat', 'global', 'mithai', 'drinks', 'decor'] as const;
-const katoris = order.map((id, i) => {
-  const a = ((-90 + (i * 360) / order.length) * Math.PI) / 180;
-  return { id, x: +(C + ORBIT * Math.cos(a)).toFixed(1), y: +(C + ORBIT * Math.sin(a)).toFixed(1) };
-});
 
 // Hammered-brass dents, placed deterministically.
 const dents: { x: number; y: number; r: number; o: number }[] = [];

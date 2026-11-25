@@ -34,6 +34,7 @@ const en = {
     guestsPh: 'e.g. 300',
     submit: 'Plan my feast',
     whatsapp: 'WhatsApp Bharatbhai',
+    katori: { sabzi: 'Sabzi', dal: 'Dal', chaat: 'Chaat counter', global: 'Global counter', mithai: 'Mithai', drinks: 'Drinks', decor: 'Décor' },
     thaliLabel:
       'A brass Gujarati thali with paneer, dal, biryani, rotis, pani puri, pizza, jalebi, sharbat and a marigold for décor.',
   },

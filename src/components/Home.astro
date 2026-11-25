@@ -6,6 +6,7 @@ import { t, LANGS } from '../i18n';
 import { MENU, ALL_ITEMS, type Lang } from '../data/menu';
 import { SITE, OCCASIONS, AREAS, SERVICES, waLink } from '../data/site';
 import { REVIEWS } from '../data/reviews';
+import { KATORIS } from '../data/thali';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -72,12 +73,19 @@ const err = (k: string) => errorKeys.includes(k);
         </form>
         <p class="hero-wa">
           <a href={waLink(d.wa.hello)} target="_blank" rel="noopener" data-wa><Icon name="message" size={18} /> {d.hero.whatsapp}</a>
-          <span aria-hidden="true">·</span>
+          <span class="sep" aria-hidden="true">·</span>
           <a href={`tel:${SITE.phoneTel}`} class="num"><Icon name="phone" size={18} /> {SITE.phoneDisplay}</a>
         </p>
       </div>
       <div class="hero-plate">
-        <Thali uid="hero" label={d.hero.thaliLabel} />
+        <div class="plate-wrap">
+          <Thali uid="hero" label={d.hero.thaliLabel} />
+          <ul class="plate-key" role="list" aria-hidden="true">
+            {KATORIS.map((k) => (
+              <li style={`left:${(k.x / 6.4).toFixed(2)}%;top:${((k.y + 62) / 6.4).toFixed(2)}%`}>{d.hero.katori[k.id]}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -485,19 +493,24 @@ const err = (k: string) => errorKeys.includes(k);
   .quick-go { grid-column: 1 / -1; }
   .hero-wa { margin-top: var(--s-4); display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); align-items: center; color: var(--on-green-soft); }
   .hero-wa a { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font-weight: 560; color: var(--on-green); }
+  @media (max-width: 520px) { .hero-wa .sep { display: none; } }
   .hero-wa a:hover { color: var(--brass-light); text-decoration: underline; }
 
   .hero-plate { position: relative; margin-right: calc(-1 * var(--s-6)); }
-  .hero-plate :global(.thali) {
-    width: min(100%, 680px);
-    margin-inline: auto;
-    animation: settle 1.4s var(--ease-out) both;
+  .plate-wrap { position: relative; width: min(100%, 680px); margin-inline: auto; animation: settle 1.4s var(--ease-out) both; }
+  .plate-key { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; pointer-events: none; }
+  .plate-key li {
+    position: absolute; translate: -50% -50%;
+    padding: 0.1rem 0.6rem; border-radius: 999px; white-space: nowrap;
+    background: var(--mehndi-950); color: var(--on-green);
+    font-size: clamp(0.7rem, 0.55rem + 0.35vw, 0.85rem); font-weight: 620; font-stretch: 106%; line-height: 1.5;
+    box-shadow: 0 0 0 1.5px var(--brass), 0 2px 6px rgba(12, 34, 24, 0.35);
   }
   @keyframes settle {
     from { transform: rotate(-14deg) scale(0.94); }
     to { transform: none; }
   }
-  @media (prefers-reduced-motion: reduce) { .hero-plate :global(.thali) { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .plate-wrap { animation: none; } }
 
   @media (max-width: 920px) {
     .hero-grid { grid-template-columns: 1fr; min-height: 0; padding-block: var(--s-5) var(--s-7); gap: 0; position: relative; }
@@ -515,7 +528,7 @@ const err = (k: string) => errorKeys.includes(k);
       right: calc(-1 * var(--gutter) - min(26vw, 150px));
       top: calc(var(--s-5) + 8.5rem);
     }
-    .hero-plate :global(.thali) { width: 100%; }
+    .plate-wrap { width: 100%; }
   }
   @media (min-width: 600px) and (max-width: 920px) {
     .hero-plate { top: var(--s-5); right: calc(-1 * var(--gutter) - 90px); width: 360px; }
@@ -687,7 +700,8 @@ const err = (k: string) => errorKeys.includes(k);
   /* ---------- REVIEWS (kumkum field) ---------- */
   .reviews { background: var(--kumkum); color: var(--kumkum-ink); padding-block: var(--s-9); }
   .reviews h2 { font-size: var(--step-3); color: #fff; margin-bottom: var(--s-7); max-width: 18ch; }
-  .rev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6); }
+  .rev-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); align-items: start; }
+  .rev-grid figure:first-child blockquote { font-size: var(--step-2); line-height: 1.4; font-weight: 480; }
   .rev-grid figure { margin: 0; display: grid; gap: var(--s-5); align-content: space-between; padding-top: var(--s-5); border-top: 2px solid var(--brass); }
   .rev-grid blockquote { margin: 0; font-size: var(--step-1); line-height: 1.5; }
   .rev-grid blockquote p::before { content: '“'; color: var(--brass-light); font-weight: 800; margin-right: 0.05em; }

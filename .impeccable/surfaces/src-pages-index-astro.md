@@ -13,7 +13,7 @@ Mode: Persuade. Visitor: a Surat family member (often older, on a phone, arrivin
 
 THESIS: The page is a Gujarati wedding thali. Every course, counter and decor service sits in its own katori on one brass plate, and planning the event means filling that plate. Refuses the category default: a dark-gold "royal" hero photo with a centred headline over a row of service cards.
 
-OWN-WORLD: Deep mehndi-green ground for the hero and footer, so polished brass and food colours glow on it. Haldi-yellow fields for the dietary promise, chilli-red and kesar-orange for actions and highlights, chaas (buttermilk) white for reading sections. Brass rims and hammered-metal rings as the frame language, round katori shapes for selections, Anek (one family across Latin, Gujarati and Devanagari) for all type, wide and heavy for display.
+OWN-WORLD: Deep mehndi-green ground for the hero and footer, so polished brass and food colours glow on it. Haldi-yellow fields for the dietary promise, chilli-red and kesar-orange for actions and highlights, deep kumkum red (the vermilion of Gujarati ceremonies) as the ground of the reviews band only, chaas (buttermilk) white for reading sections. Brass rims and hammered-metal rings as the frame language, round katori shapes for selections, Anek (one family across Latin, Gujarati and Devanagari) for all type, wide and heavy for display.
 
 STORY: The visitor sees the whole offer at once on one plate (food, drinks, live counters, decor). Next they read that it is strictly pure veg, Jain and Swaminarayan safe, with zero alcohol. Then they believe Bharatbhai personally runs it (reviews, founder). Finally they build their thali and send it as an inquiry or WhatsApp message.
 
